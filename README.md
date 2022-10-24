@@ -32,3 +32,11 @@ the simulation board.
  
 * CGT_TOOLCHAIN_DIR - To set the toolchain path. E.g:
 `-DCGT_TOOLCHAIN_DIR=/Applications/ti/ccs1200/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS`
+
+to change to .out
+  set_target_properties(
+  executable
+  PROPERTIES
+  OUTPUT_NAME "executable"
+  SUFFIX ".out"
+  )
