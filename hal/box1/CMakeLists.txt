@@ -5,9 +5,32 @@ file(GLOB_RECURSE SOURCES
 
 add_library(hal-box1 ${SOURCES})
 
-target_compile_options(hal-box1 PUBLIC --silicon_version=msp
-    PUBLIC --define=__MSP430G2553__)
+target_compile_options(hal-box1
+    PUBLIC --silicon_version=msp
+    PUBLIC --use_hw_mpy=none
+    PUBLIC --define=__MSP430G2553__
+    PUBLIC --printf_support=minimal
+    PUBLIC --display_error_number
+    PUBLIC --diag_wrap=off
+    PUBLIC --diag_warning=225
+    )
 
-target_link_options(hal-box1 PUBLIC --define=__MSP430G2553__
+target_link_options(hal-box1
+    PUBLIC --silicon_version=msp
+    PUBLIC --use_hw_mpy=none
+    PUBLIC --define=__MSP430G2553__
+    PUBLIC --heap_size=80
+    PUBLIC --stack_size=80
+    PUBLIC --printf_support=minimal
+    PUBLIC --use_hw_mpy=none
+    PUBLIC --diag_wrap=off
+    PUBLIC --diag_warning=225
+    PUBLIC --display_error_number
+    PUBLIC --reread_libs
+    PUBLIC  --warn_sections
     PUBLIC --rom_model)
-target_link_libraries(hal-box1 PUBLIC msp430g2553.cmd)
+
+target_link_libraries(hal-box1
+    PUBLIC -llnk_msp430g2553.cmd
+    PUBLIC -llibc.a
+    )
