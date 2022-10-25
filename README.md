@@ -40,3 +40,6 @@ to change to .out
   OUTPUT_NAME "executable"
   SUFFIX ".out"
   )
+
+asdasd
+
