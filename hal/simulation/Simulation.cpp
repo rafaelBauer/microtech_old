@@ -1,3 +1,12 @@
-//
-// Created by Rafael Andrioli Bauer on 23.10.22.
-//
+#include "Board.hpp"
+
+namespace MicroTech {
+bool Board::initializeBoard() {
+  return false;
+}
+
+bool Board::startBoard() {
+
+  return false;
+}
+}

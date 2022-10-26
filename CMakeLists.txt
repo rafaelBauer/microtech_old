@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-
+#set(CMAKE_VERBOSE_MAKEFILE ON) -DCMAKE_VERBOSE_MAKEFILE=ON --debug-output --trace
 project(microtech C CXX)
 
 #if(NOT DEFINED HAL AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
@@ -9,10 +9,11 @@ project(microtech C CXX)
 #  include(${CMAKE_TOOLCHAIN_FILE})
 #endif()
 
-
-
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_subdirectory(hal)
+add_subdirectory(app)
 
 

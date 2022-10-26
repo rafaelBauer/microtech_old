@@ -77,3 +77,7 @@ local.properties
 
 ## Visual Studio cache files ##
 /.vs
+
+## Clion files
+.idea
+custom-compiler-*

@@ -4,6 +4,11 @@ file(GLOB_RECURSE SOURCES
     )
 
 add_library(hal-box1 ${SOURCES})
+add_library(MicroTech::HAL::Box1 ALIAS hal-box1)
+
+target_include_directories(hal-box1
+        PUBLIC ${PROJECT_SOURCE_DIR}/hal/include
+        )
 
 target_compile_options(hal-box1
     PUBLIC --silicon_version=msp
@@ -13,6 +18,7 @@ target_compile_options(hal-box1
     PUBLIC --display_error_number
     PUBLIC --diag_wrap=off
     PUBLIC --diag_warning=225
+    PUBLIC --emit_warnings_as_errors
     )
 
 target_link_options(hal-box1
@@ -21,7 +27,6 @@ target_link_options(hal-box1
     PUBLIC --define=__MSP430G2553__
     PUBLIC --heap_size=80
     PUBLIC --stack_size=80
-    PUBLIC --printf_support=minimal
     PUBLIC --use_hw_mpy=none
     PUBLIC --diag_wrap=off
     PUBLIC --diag_warning=225
